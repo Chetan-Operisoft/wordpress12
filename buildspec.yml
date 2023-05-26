@@ -4,7 +4,6 @@ phases:
   install:
     build:
     commands:
-      - echo "Running build commands"
       - cd /var/www/html/WordPress
       - composer install --no-dev
       - npm install
