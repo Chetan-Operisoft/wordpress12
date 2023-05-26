@@ -1,0 +1,27 @@
+version: 0.2
+
+ 
+
+phases:
+  install:
+    runtime-versions:
+      php: 7.4
+  pre_build:
+    commands:
+      - echo "Running pre-build commands"
+  build:
+    commands:
+      - echo "Running build commands"
+      - cd /var/www/html/WordPress
+      - composer install --no-dev
+      - npm install
+      - npm run build
+  post_build:
+    commands:
+      - echo "Running post-build commands"
+      - cp -R /var/www/html/WordPress /var/www/html/live
+artifacts:
+  files:
+    - /var/www/html/live/**
+  discard-paths: yes
+  base-directory: /var/www/html/live
