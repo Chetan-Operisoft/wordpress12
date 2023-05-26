@@ -2,12 +2,7 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      php: 7.4
-  pre_build:
-    commands:
-     - echo C
-  build:
+    build:
     commands:
       - echo "Running build commands"
       - cd /var/www/html/WordPress
